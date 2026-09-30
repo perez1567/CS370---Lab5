@@ -3,6 +3,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -27,6 +29,8 @@ public class HelloApplication extends Application {
         }
         grid.setHgap(5);
         grid.setVgap(5);
+        grid.setAlignment(Pos.CENTER);
+        grid.setStyle("-fx-background-color: green; -fx-padding: 20;");
         showCards();
         Button shuffleButton = new Button("Shuffle");
         shuffleButton.setOnAction(event -> {
@@ -34,9 +38,11 @@ public class HelloApplication extends Application {
             showCards();
         });
         VBox root = new VBox(10);
+        root.setAlignment(Pos.CENTER);
+        root.setPadding(new Insets(10));
         root.getChildren().addAll(grid, shuffleButton);
         Scene scene = new Scene(root, 1000, 600);
-        stage.setTitle("52 Card Shuffle");
+        stage.setTitle("Lab 5 cs370");
         stage.setScene(scene);
         stage.show();
     }
